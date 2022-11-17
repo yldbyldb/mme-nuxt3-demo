@@ -1,9 +1,9 @@
 <template>
-  <div>{{data}}</div>
+  <div>{{data.pagenewUiCollection.items[0].page}}</div>
   <!-- <p v-for="(item, i) in items " :key="i">{{item.slug}}</p> -->
 </template>
 
-<script lang="ts" setup>
+<script setup>
 
 const query = gql`
   query getPL {
@@ -14,12 +14,8 @@ const query = gql`
     }
   }
 `
-const  data  = await useAsyncQuery(query, { limit: 2 })
-// const items = data.pagepersonalLoanCollection.items
+const { data }  = await useAsyncQuery(query, { limit: 2 })
 
-console.log('====================================');
-console.log(data + "!!!");
-console.log('====================================');
 </script>
 
 
