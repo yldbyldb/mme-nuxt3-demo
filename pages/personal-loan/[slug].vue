@@ -7,8 +7,6 @@
   </NuxtLayout>
 </template>
 <script setup>
-import { ref } from "vue";
-
 const route = useRoute();
 const slug = ref(route.params.slug);
 const personalLoanContent = gql`
