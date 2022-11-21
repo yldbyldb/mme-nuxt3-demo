@@ -1,13 +1,13 @@
 <template>
   <div>
-    <Header />
+    <Header2 />
       <slot />
-    <Footer />
+    <Footer2 />
   </div>
 </template>
 
 <script>
 export default {
-  layout: 'default',
+  layout: 'custom',
 }
 </script>
