@@ -25,6 +25,9 @@ const personalLoanContent = gql`
             url
           }
         }
+        seoMetaTitle
+        seoMetaDescription
+        seoStructuredData
       }
     }
   }
@@ -32,9 +35,19 @@ const personalLoanContent = gql`
 const variables = { slug: slug.value }
 const { data }  = await useAsyncQuery(personalLoanContent, variables);
 const pageData = data.value.pagepersonalLoanCollection.items[0]
-console.log('====================================');
-console.log(data.value.pagepersonalLoanCollection.items[0].page);
-console.log('====================================');
+// console.log('====================================');
+// console.log(data.value.pagepersonalLoanCollection.items[0].page);
+// console.log('====================================');
+const stringifiedStructuredData = JSON.stringify(pageData.seoStructuredData)
+useHead({
+  titleTemplate: `MME-${pageData.seoMetaTitle}`,
+  meta: [
+    { name: 'description', content: pageData.seoMetaDescription }
+  ],
+  script: [
+    { type: 'application/ld+json', children: stringifiedStructuredData && stringifiedStructuredData }
+  ]
+})
 
 </script>
 

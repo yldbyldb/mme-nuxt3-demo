@@ -3,6 +3,14 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/apollo'],
 
+  app: {
+    head: {
+      link: [
+        { rel: "icon", href: '/static/mme-favicon.png', type: 'image/png' }
+      ]
+    }
+  },
+
   apollo: {
     clients: {
       default: {
